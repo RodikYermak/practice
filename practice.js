@@ -208,10 +208,147 @@ const shuffle = (nums, n) => {
     return resArr;
 };
 
-shuffle([2, 5, 1, 3, 4, 7], 3);
+// shuffle([2, 5, 1, 3, 4, 7], 3);
+
+/* 
+
+You are given a 0-indexed array of strings words and a character x.
+
+Return an array of indices representing the words that contain the character x.
+
+Note that the returned array may be in any order.
+
+ 
+
+Example 1:
+
+Input: words = ["leet","code"], x = "e"
+Output: [0,1]
+Explanation: "e" occurs in both words: "leet", and "code". Hence, we return indices 0 and 1.
+Example 2:
+
+Input: words = ["abc","bcd","aaaa","cbc"], x = "a"
+Output: [0,2]
+Explanation: "a" occurs in "abc", and "aaaa". Hence, we return indices 0 and 2.
+Example 3:
+
+Input: words = ["abc","bcd","aaaa","cbc"], x = "z"
+Output: []
+Explanation: "z" does not occur in any of the words. Hence, we return an empty array.
+
+
+*/
+
+const findWordsContaining = (words, x) => {
+    console.log(words, x);
+    const arr = [];
+
+    for (let i = 0; i < words.length; i++) {
+        if (words[i].includes(x)) {
+            arr.push(i);
+        }
+    }
+
+    console.log(arr);
+    return arr;
+};
+
+// findWordsContaining(["leet","code"], "e");
+
+/*
+You are given a 0-indexed integer array nums, and an integer k.
+
+In one operation, you can remove one occurrence of the smallest element of nums.
+
+Return the minimum number of operations needed so that all elements of the array are greater than or equal to k.
+
+ 
+
+Example 1:
+
+Input: nums = [2,11,10,1,3], k = 10
+Output: 3
+Explanation: After one operation, nums becomes equal to [2, 11, 10, 3].
+After two operations, nums becomes equal to [11, 10, 3].
+After three operations, nums becomes equal to [11, 10].
+At this stage, all the elements of nums are greater than or equal to 10 so we can stop.
+It can be shown that 3 is the minimum number of operations needed so that all elements of the array are greater than or equal to 10.
+Example 2:
+
+Input: nums = [1,1,2,4,9], k = 1
+Output: 0
+Explanation: All elements of the array are greater than or equal to 1 so we do not need to apply any operations on nums.
+Example 3:
+
+Input: nums = [1,1,2,4,9], k = 9
+Output: 4
+Explanation: only a single element of nums is greater than or equal to 9 so we need to apply the operations 4 times on nums.
+
+*/
+
+const minOperations = (nums, k) => {
+    let count = 0;
+    // console.log(nums, k);
+
+    for(let i = 0; i < nums.length; i++){
+        // console.log(nums[i]);
+        if(nums[i] < k){
+            count += 1;
+        }
+    }
+
+    console.log(count);
+    return count;
+};
+
+// minOperations([2, 11, 10, 1, 3], 10);
+
+
+/*
+In MATLAB, there is a handy function called reshape which can reshape an m x n matrix into a new one with a different size r x c keeping its original data.
+
+You are given an m x n matrix mat and two integers r and c representing the number of rows and the number of columns of the wanted reshaped matrix.
+
+The reshaped matrix should be filled with all the elements of the original matrix in the same row-traversing order as they were.
+
+If the reshape operation with given parameters is possible and legal, output the new reshaped matrix; Otherwise, output the original matrix.
+
+ 
+
+Example 1:
+
+
+Input: mat = [[1,2],[3,4]], r = 1, c = 4
+Output: [[1,2,3,4]]
+Example 2:
+
+
+Input: mat = [[1,2],[3,4]], r = 2, c = 4
+Output: [[1,2],[3,4]]
+
+
+
+*/
+
+const matrixReshape = (mat, r, c) => {
+    const m = mat.length; // Number of rows in the original matrix
+    const n = mat[0].length; // Number of columns in the original matrix
+
+    // Check if reshaping is possible
+    if (m * n !== r * c) {
+        // Reshaping not possible, return the original matrix
+        return mat;
+    }
+}
+
+matrixReshape([[1,2],[3,4]], 1, 4);
+
+
 
 // module.exports = twoSums;
 // module.exports = getConcatenation;
 // module.exports = numIdenticalPairs;
 // module.exports = finalValueAfterOperations;
-module.exports = shuffle;
+// module.exports = shuffle;
+// module.exports = findWordsContaining;
+module.exports = minOperations;
