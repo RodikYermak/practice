@@ -60,24 +60,35 @@ const hammingWeight = (n) => {
 
     // reverse 1011 | total 1s are 3
 
-    let result = 0;
-    let dividingNumber = n;
-    const remainderArr = [];
+    // let result = 0;
+    // let dividingNumber = n;
+    // const remainderArr = [];
 
-    while (dividingNumber > 0) {
-        let remainder = dividingNumber % 2;
-        let restNumber = Math.floor(dividingNumber / 2);
-        remainderArr.push(remainder);
-        dividingNumber = restNumber;
+    // while (dividingNumber > 0) {
+    //     let remainder = dividingNumber % 2;
+    //     let restNumber = Math.floor(dividingNumber / 2);
+    //     remainderArr.push(remainder);
+    //     dividingNumber = restNumber;
+    // }
+
+    // remainderArr.forEach((num) => {
+    //     if (num === 1) {
+    //         result += 1;
+    //     }
+    // });
+
+    // console.log(result);
+    // return result;
+
+    let result = 0;
+
+    while (n !== 0) {
+        if (n % 2 === 1) {
+            result++;
+        }
+        n = Math.floor(n / 2);
     }
 
-    remainderArr.forEach((num) => {
-        if (num === 1) {
-            result += 1;
-        }
-    });
-
-    console.log(result);
     return result;
 };
 
